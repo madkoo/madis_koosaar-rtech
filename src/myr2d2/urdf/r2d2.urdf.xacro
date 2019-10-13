@@ -237,7 +237,7 @@
 		<origin xyz="${.707*width+0.04} 0 ${.707*width}"/>
 	</joint>
 
-	<link name="lens">
+	<link name="lense">
 		<visual>
 			<geometry>
 				<cylinder radius="${lensr}" length="${lenslen}"/>
@@ -253,9 +253,9 @@
 		<xacro:default_inertial mass="1"/>
 	</link>
 
-	<joint name="tolens" type="fixed">
+	<joint name="tolense" type="fixed">
 		<parent link="box"/>
-		<child link="lens"/>
+		<child link="lense"/>
 		<origin xyz="0 0 0"/>
 	</joint>
 
@@ -266,6 +266,15 @@
 		<parent link="base_footprint"/>
 		<child link="base_link"/>
 		<origin xyz="0 0 ${wheeldiam+bodylen/2+0.1}" />
+	</joint>
+
+	<link name="eye">
+	</link>
+
+	<joint name="tolense_eye" type="fixed">
+	<parent link="lense"/>
+	<child link="eye"/>
+	<origin xyz="${pi/2} ${-pi} ${pi/2}"/>	
 	</joint>
 
 </robot>
